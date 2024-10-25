@@ -25,8 +25,8 @@
                     <v-divider></v-divider>
                     <v-list dense>
                         <v-list-item
-                            v-for="(link, idx) in category.links"
-                            :key="idx"
+                            v-for="(link, idx) in category.links" 
+                            :key="idx" 
                             :href="link.url"
                             target="_blank"
                             rel="noopener noreferrer"
@@ -47,7 +47,7 @@
                                     :style="{ filter: link.color ? `invert(${link.color})` : 'none' }" 
                                 />
                             </v-list-item-icon>
-                            <v-list-item-content>
+                            <v-list-item-content v-if="linkMatchesSearch(link)">
                                 <v-list-item-title class="font-weight-semibold">
                                     {{ link.name }}
                                 </v-list-item-title>
@@ -76,16 +76,26 @@ export default {
     },
     computed: {
         filteredCategories() {
-            // Filter categories based on search query in titles, links, and descriptions
-            return this.categories.map(category => ({
-                ...category,
-                links: category.links.filter(link =>
-                    link.name.toLowerCase().includes(this.searchQuery.toLowerCase()) ||
-                    link.description.toLowerCase().includes(this.searchQuery.toLowerCase())
-                )
-            })).filter(category => category.links.length > 0); // Only include categories with matching links
+            return this.categories
+                .map(category => {
+                    const filteredLinks = category.links.filter(link => this.linkMatchesSearch(link));
+                    return {
+                        ...category,
+                        links: filteredLinks
+                    };
+                })
+                .filter(category => category.links.length > 0); // Only return categories that have matching links
         },
     },
+    methods: {
+        linkMatchesSearch(link) {
+            const query = this.searchQuery.toLowerCase();
+            return (
+                link.name.toLowerCase().includes(query) || 
+                (link.description && link.description.toLowerCase().includes(query))
+            );
+        }
+    }
 }
 </script>
 
@@ -104,7 +114,7 @@ export default {
 .formatted-card {
     border-radius: 12px;
     transition: transform 0.3s, box-shadow 0.3s;
-    width: 400px; /* Standard width */
+    width: 500px; /* Standard width */
     margin: 16px; /* Spacing between cards */
 }
 
