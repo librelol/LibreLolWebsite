@@ -49,8 +49,6 @@
 </template>
 
 <script>
-import { mdiVpn, mdiEmail } from '@mdi/js';
-
 export default {
     name: 'Links',
     data() {
@@ -65,7 +63,7 @@ export default {
                             icon: 'https://cdn.simpleicons.org/telegram/0088cc', 
                             iconType: 'simple',
                             color: '#0088cc', 
-                            description: 'Join our Telegram channel for the latest updates and discussions.' 
+                            description: 'Join our Telegram channel for updates and discussions.' 
                         },
                         { 
                             name: 'X', 
@@ -86,7 +84,7 @@ export default {
                             icon: 'https://cdn.simpleicons.org/searxng/0088cc', 
                             iconType: 'simple',
                             color: '#0088cc', 
-                            description: 'Search the web privately with the open-source search engine Searx.' 
+                            description: 'Search the web privately with Searx.' 
                         },
                         { 
                             name: 'Invidious', 
@@ -94,7 +92,7 @@ export default {
                             icon: 'mdi-play-box',
                             iconType: 'mdi',
                             color: '#FF0000', 
-                            description: 'Watch YouTube videos securely without ads using Invidious.' 
+                            description: 'Watch YouTube videos securely without ads.' 
                         },
                         {
                             name: 'Wikiless',
@@ -102,7 +100,7 @@ export default {
                             icon: 'mdi-wikipedia',
                             iconType: 'mdi',
                             color: '#000000',
-                            description: 'Access Wikipedia articles without tracking or ads.'
+                            description: 'Access Wikipedia articles without tracking.'
                         }
                     ],
                 },
@@ -115,7 +113,7 @@ export default {
                             icon: 'mdi-vpn', 
                             iconType: 'mdi',
                             color: '#008000', 
-                            description: 'A trusted VPN provider known for its strong privacy and security features.' 
+                            description: 'A trusted VPN provider known for privacy and security.' 
                         },
                         { 
                             name: 'Proton Mail', 
@@ -123,8 +121,16 @@ export default {
                             icon: 'https://cdn.simpleicons.org/protonmail/8B89CC', 
                             iconType: 'simple',
                             color: '#8B89CC', 
-                            description: 'Secure and encrypted email service for privacy-conscious users.' 
+                            description: 'Secure and encrypted email for privacy-conscious users.' 
                         },
+                        {
+                            name: 'Telegraph',
+                            url: 'https://telegra.ph',
+                            icon: 'mdi-newspaper',
+                            iconType: 'mdi',
+                            color: '#0088cc',
+                            description: 'Publish articles and stories anonymously.'
+                        }
                     ],
                 },
                 {
@@ -144,7 +150,7 @@ export default {
                             icon: 'mdi-git', 
                             iconType: 'mdi',
                             color: '#F05032', 
-                            description: 'A self-hosted Git service available to the public.' 
+                            description: 'A self-hosted Git service for the public.' 
                         },
                         { 
                             name: 'Vaultwarden', 
@@ -152,10 +158,23 @@ export default {
                             icon: 'mdi-lock', 
                             iconType: 'mdi',
                             color: '#FFD700', 
-                            description: 'Securely manage your passwords with this open-source Bitwarden alternative.' 
+                            description: 'Manage your passwords securely with this Bitwarden alternative.' 
                         },
                     ],
                 },
+                {
+                    title: "Notable Mentions",
+                    links: [
+                        {
+                            name: 'UNSPA',
+                            url: 'https://unspa.com',
+                            icon: 'mdi-school',
+                            iconType: 'mdi',
+                            color: '#FF0000',
+                            description: 'American Nationalist Group'
+                        }
+                    ],
+                }
             ],
         };
     },
@@ -164,41 +183,41 @@ export default {
 
 <style scoped>
 .v-card {
-    border-radius: 12px; /* Increased rounding for a softer look */
-    transition: transform 0.3s, box-shadow 0.3s; /* Animation for card */
+    border-radius: 12px;
+    transition: transform 0.3s, box-shadow 0.3s;
 }
 
 .v-card:hover {
-    transform: scale(1.05); /* Scale effect on hover */
-    box-shadow: 0 6px 30px rgba(0, 0, 0, 0.2); /* Deeper shadow effect on hover */
+    transform: scale(1.05);
+    box-shadow: 0 6px 30px rgba(0, 0, 0, 0.2);
 }
 
 .v-list-item {
-    transition: background-color 0.2s; /* Animation for list items */
+    transition: background-color 0.2s;
 }
 
 .v-list-item:hover {
-    background-color: rgba(255, 255, 255, 0.1); /* Subtle background change on hover */
+    background-color: rgba(255, 255, 255, 0.1);
 }
 
 .list-item-animated {
-    transition: transform 0.2s; /* Animation for list item */
+    transition: transform 0.2s;
 }
 
 .list-item-animated:hover {
-    transform: translateX(5px); /* Slide effect on hover */
+    transform: translateX(5px);
 }
 
 .icon {
-    width: 24px;  /* Increased icon size for better visibility */
-    height: 24px; 
+    width: 24px;
+    height: 24px;
 }
 
 .subtitle {
-    color: #757575; /* Subtle color for subtitles */
+    color: #757575;
 }
 
 .font-weight-semibold {
-    font-weight: 600; /* Adjusted font weight for titles */
+    font-weight: 600;
 }
 </style>
