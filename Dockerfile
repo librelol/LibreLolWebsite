@@ -22,8 +22,11 @@ FROM nginx:alpine
 # Step 8: Copy the built files from the previous stage
 COPY --from=build-stage /app/dist /usr/share/nginx/html
 
-# Step 9: Expose the default Nginx port
-EXPOSE 80
+# Step 9: Copy the custom Nginx configuration
+COPY nginx.conf /etc/nginx/conf.d/default.conf
 
-# Step 10: Start Nginx server
+# Step 10: Expose port 3030
+EXPOSE 3030
+
+# Step 11: Start Nginx server
 CMD ["nginx", "-g", "daemon off;"]
